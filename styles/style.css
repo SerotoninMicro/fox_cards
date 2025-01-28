@@ -1,0 +1,162 @@
+.ibm-plex-mono-regular {
+    font-family: "IBM Plex Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #45a049;
+}
+
+body {
+    margin: 0;
+    font-family: "IBM Plex Mono", serif;
+    background-color: #1e1e1e; /* Dark terminal background */
+    color: #dcdcdc; /* Light terminal text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.ascii-art {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-family: "IBM Plex Mono", monospace;
+    color: #45a049;
+    font-size: 7px;
+    white-space: pre-wrap;
+    text-align: center;
+}
+
+#ascii-art-correct {
+    display: block;
+}
+
+#ascii-art-incorrect {
+    display: none;
+    color: firebrick;
+}
+
+
+.MainTitle {
+    font-family: "IBM Plex Mono", monospace;  /* Ensure consistent monospacing */
+    color: #00ff00;  /* Adjust the text color for visibility */
+    font-size: 100%;  /* Adjust font size as needed */
+    white-space: pre-wrap;  /* Ensure the ASCII art wraps properly */
+    text-align: center;  /* Center the title */
+    line-height: 100%;  /* Adjust line spacing for better readability */
+}
+
+/* Welcome screen styles */
+#welcome-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    color: #dcdcdc; /* Light terminal text */
+}
+
+.selector-container {
+    margin: 20px;
+    padding: 20px;
+    background: transparent;
+    border-radius: 10px;
+}
+
+.dropdown {
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 1.1em;
+    min-width: 200px;
+    background: transparent; /* Dark dropdown background */
+    color: #dcdcdc; /* Light text */
+    border: none; /* Removed borders */
+    font-family: "IBM Plex Mono", serif;
+}
+
+.dropdown:hover {
+    color: #ffffff; /* White text on hover */
+    font-family: "IBM Plex Mono", serif;
+}
+
+#start-btn {
+    padding: 12px 30px;
+    font-size: 1.2em;
+    background: #007f00; /* Green background */
+    font-family: "IBM Plex Mono", serif;
+    color: #dcdcdc; /* Light text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+#start-btn:disabled {
+    background: #444444; /* Disabled button */
+    cursor: not-allowed;
+    font-family: "IBM Plex Mono", serif;
+}
+
+#main-content {
+    display: none;
+}
+
+#level-selector {
+    position: absolute;
+    top: 20px;
+    padding: 8px 12px;
+    font-size: 1em;
+    background: #333333; /* Dark selector background */
+    color: #dcdcdc; /* Light text */
+    border: 1px solid #666666; /* Light border */
+    font-family: "IBM Plex Mono", serif;
+}
+
+#word-display {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-align: center;
+    min-height: 60px;
+    color: #00ff00; /* Green text for word display */
+    font-family: "IBM Plex Mono", serif;
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 8px 12px;
+    font-size: 1.1em;
+    border: 2px solid #555555; /* Light border */
+    background: #333333; /* Dark input background */
+    color: #dcdcdc; /* Light text */
+    font-family: "IBM Plex Mono", serif;
+}
+
+button {
+    padding: 8px 20px;
+    font-size: 1.1em;
+    background-color: #007f00; /* Green button background */
+    color: #dcdcdc; /* Light text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "IBM Plex Mono", serif;
+}
+
+button:hover {
+    background-color: #45a049; /* Lighter green on hover */
+    font-family: "IBM Plex Mono", serif;
+}
+
+#result {
+    font-size: 1.2em;
+    min-height: 24px;
+    color: #dcdcdc; /* Light text */
+}

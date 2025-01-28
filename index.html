@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Practice</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Welcome Screen -->
+    <div id="welcome-screen">
+        <pre class="MainTitle">
+            ██ ███████  ██████  ██   ██          ██████  █████  ██████  ██████  ███████ 
+           ██  ██      ██    ██  ██ ██          ██      ██   ██ ██   ██ ██   ██ ██      
+          ██   █████   ██    ██   ███           ██      ███████ ██████  ██   ██ ███████ 
+         ██    ██      ██    ██  ██ ██          ██      ██   ██ ██   ██ ██   ██      ██ 
+        ██     ██       ██████  ██   ██ ███████  ██████ ██   ██ ██   ██ ██████  ███████ 
+        </pre>
+        
+        <div class="selector-container">
+            <select id="language-select" class="dropdown">
+                <option value="">Select Language</option>
+            </select>
+            
+            <select id="level-select" class="dropdown" disabled>
+                <option value="">Select Level</option>
+            </select>
+        </div>
+        <button id="start-btn" disabled>Start Learning</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="header" style="display: none;">
+        <select id="level-selector" class="level-selector">
+            <option value="a1levelfrench">French A1</option>
+        </select>
+    </div>
+    
+    <div id="main-content" class="content" style="display: none;">
+        <div id="word-display"></div>
+        <div class="input-container">
+            <input type="text" id="answer-input" placeholder="Enter translation">
+            <button id="submit-btn">Submit</button>
+        </div>
+        <div id="result"></div>
+    
+        <!-- ASCII Art Container -->
+        <div id="ascii-art-container" class="ascii-art">
+            <pre id="ascii-art-correct">```
+    　　　　　 　 　 　 　 　 　 　 ,へ. 　 　 i´:ヽ.
+    　　 　 　 　 　 　 　 　 　 　 |: : :＞―ﾉ: :.ヽ＼
+    　　 　 　 　 　 　 　 　 　 　 |／: : : : : :w､ﾘ: : :ヽ
+    　　　　　　　　　　　　　　　/ : : : : : : : : : : :.{
+    　　　　　　　　　　　　　　_,の: : : : の! : : : : : : : :ゝ　　　　､_
+    　　　　　　　　　　　　　〈:.:.: : : : : : : : : : : : : : : :＞　　　　ヽ ｀ ‐- ､
+    　　　　　　　　 　 　 　 　ヽW、: : : : : : : : : : :_,:<｀　　　　　　|:..　　　'、
+    　　　　　　　　　　　　　　　　ﾉ_､: : : : :､.:.: : : :〈´ 　 　 　 　 /: : : : : : L_
+    　　　　　　　　　　　　　　　　ｿ.: : :.:: : :.::>::..: : :.ヽ　　　　／: : : : : : : :ｨ´
+    　　　　　　　　　　　　　　　　ｼ': :´: : : : ﾐ':. : : : : :ヽ　 ／: : : : : : : : : : }
+    　　　　　　　　　　　　　　　　'ﾍ: : :.´､:;'´.:.: : : : : : : ∨: : : : : : : : : : : /
+    　　　　　　 　 　 　 　 　 　 　 」｀: :「: : : : : ,!: : : : : : :ヽ: : : : : : : : :／
+    　　　　　　　　　　　　　　　　(:.|: :.(:´:.ヽ: :/: : : : : : : : :.'､: :._:.､- '´
+    　　　 　 　 　 　 　 　 　 　 　 ｿ: :.::ﾊ: : ∨: : : : : : : : : : :{´
+    　　　　　　　　 　 　 　 　 　 〈:.: :.〈: :ヽ.: : : ,、: : : : : : : :ﾉ
+    　　　　　　　　　　　　 　 　 　 ￣　￣　￣　｀￣￣￣´```
+            </pre>
+            <pre id="ascii-art-incorrect" style="display:none;">```
+    　　　　　 　 　 　 　 　 　 　 ,へ. 　 　 i´:ヽ.
+    　　 　 　 　 　 　 　 　 　 　 |: : :＞―ﾉ: :.ヽ＼
+    　　 　 　 　 　 　 　 　 　 　 |／: : : : : :w､ﾘ: : :ヽ
+    　　　　　　　　　　　　　　　/ _|: : : ､＿: : : : : : : :.{
+    　　　　　　　　　　　　　　_,リ: : : : 匕! : : : : : : : :ゝ　　　　､_
+    　　　　　　　　　　　　　〈:.:.: : : : : : : : : : : : : : : : :＞　　　　ヽ ｀ ‐- ､
+    　　　　　　　　 　 　 　 　ヽニ、: : : : : : : : : : :_,:<｀　　　　　　|:..　　　'、
+    　　　　　　　　　　　　　　　　ﾉ_､: : : : :､.:.: : : :〈´ 　 　 　 　 /: : : : : : L_
+    　　　　　　　　　　　　　　　　ｿ.: : :.:: : :.::>::..: : :.ヽ　　　　／: : : : : : : :ｨ´
+    　　　　　　　　　　　　　　　　ｼ': :´: : : : ﾐ':. : : : : :ヽ　 ／: : : : : : : : : : }
+    　　　　　　　　　　　　　　　　'ﾍ: : :.´､:;'´.:.: : : : : : : ∨: : : : : : : : : : : /
+    　　　　　　 　 　 　 　 　 　 　 」｀: :「: : : : : ,!: : : : : : :ヽ: : : : : : : : :／
+    　　　　　　　　　　　　　　　　(:.|: :.(:´:.ヽ: :/: : : : : : : : :.'､: :._:.､- '´
+    　　　 　 　 　 　 　 　 　 　 　 ｿ: :.::ﾊ: : ∨: : : : : : : : : : :{´
+    　　　　　　　　 　 　 　 　 　 〈:.: :.〈: :ヽ.: : : ,、: : : : : : : :ﾉ
+    　　　　　　　　　　　　 　 　 　 ￣　￣　￣　｀￣￣￣´```
+            </pre>
+        </div>
+    </div>
+    
+
+    <!-- Scripts -->
+    <script src="scripts/config.js"></script>
+    <script src="scripts/app.js"></script>
+</body>
+</html>
